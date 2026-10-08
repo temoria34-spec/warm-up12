@@ -24,14 +24,17 @@
 pub fn count_passing(scores: &[i32]) -> usize {
     let mut passing = 0;
     let mut i = 0;
+
     while i < scores.len() {
-        if scores[i] >= 50 {
-            passing = 1;
+        if scores[i] >= 60 {
+            passing += 1;
         }
         i += 1;
     }
+
     passing
 }
+
 
 /// Describes how many of the scores passed.
 ///
@@ -48,5 +51,6 @@ pub fn count_passing(scores: &[i32]) -> usize {
 /// ```
 pub fn pass_summary(scores: &[i32]) -> String {
     let passing = count_passing(scores);
-    format!("{} of {} passed", passing, 4)
+    format!("{} of {} passed", passing, scores.len())
 }
+
